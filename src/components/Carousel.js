@@ -25,13 +25,11 @@ function Carousel() {
             <Card.Description> {text} </Card.Description>
           </Card.Content>
           <Card.Content extra>
-
-            <Icon bordered link name='angle left' />
-            <Icon bordered link name='angle right' />
-            <div>
-              <Icon bordered link name='random' />
+            <Icon size='big' link name='angle left' />
+            <Icon size='big' link name='angle right' />
+            <div style={{ margin: '1rem' }}>
+              <Icon size='big' link name='random' />
             </div>
-
           </Card.Content>
         </Card>
       </Grid>
