@@ -56,7 +56,7 @@ function Carousel() {
 
   return (
     <div style={{ margin: '5rem', padding: '2.5rem' }} >
-      <Grid container centered textAlign='center' columns={1}>
+      <Grid container centered textAlign='center' >
         <Card raised  >
           <Image src={image} wrapped ui={false} />
           <Card.Content>
