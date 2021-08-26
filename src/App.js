@@ -1,8 +1,11 @@
+import Carousel from "./components/Carousel";
 
 
 function App() {
   return (
-    <div>Hello World!</div>
+    <div>
+      <Carousel />
+    </div>
   );
 }
 
