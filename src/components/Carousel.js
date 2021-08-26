@@ -15,7 +15,7 @@ function Carousel() {
   //To get all properties from Data array based on index
   const { name, job, image, text } = Data[index];
 
-
+  // To ensure that we never go beyond the length/index of our Data
   const checkNumber = (number) => {
     if (number > Data.length - 1) {
       return 0
@@ -44,11 +44,15 @@ function Carousel() {
   // Math op. to make sure we get a number IN BETWEEN 0 and the length of the Data array
   const randomDisplay = () => {
     let randomNumber = Math.floor((Math.random() * Data.length))
-    console.log(randomNumber);
-    setIndex(randomNumber)
+    //console.log(randomNumber);
+
+    // to make sure the UI changes EVEN if we get the SAME CONSECUTIVE Random number we add/sub anything(just to CHANGE that random number), so i am just adding 2
+    if (randomNumber === index) {
+      randomNumber = index + 2
+    }
+    // we also want to make sure that our random number always stay below our Data length.
+    setIndex(checkNumber(randomNumber))
   }
-
-
 
   return (
     <div style={{ margin: '5rem', padding: '2.5rem' }} >
