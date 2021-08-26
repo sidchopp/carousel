@@ -40,6 +40,16 @@ function Carousel() {
     })
   }
 
+  // for random display
+  // Math op. to make sure we get a number IN BETWEEN 0 and the length of the Data array
+  const randomDisplay = () => {
+    let randomNumber = Math.floor((Math.random() * Data.length))
+    console.log(randomNumber);
+    setIndex(randomNumber)
+  }
+
+
+
   return (
     <div style={{ margin: '5rem', padding: '2.5rem' }} >
       <Grid container centered textAlign='center' columns={1}>
@@ -54,7 +64,7 @@ function Carousel() {
             <Icon onClick={prevPerson} size='big' link name='angle left' />
             <Icon onClick={nextPerson} size='big' link name='angle right' />
             <div style={{ margin: '1rem' }}>
-              <Icon size='big' link name='random' />
+              <Icon onClick={randomDisplay} size='big' link name='random' />
             </div>
           </Card.Content>
         </Card>
