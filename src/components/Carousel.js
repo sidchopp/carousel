@@ -13,7 +13,7 @@ function Carousel() {
   const [index, setIndex] = useState(0);
   //console.log(Data);
   //To get all properties from Data array based on index
-  const { name, job, image, text } = Data[index];
+  const { name, job, image, text, techUsed } = Data[index];
 
   // To ensure that we never go beyond the length/index of our Data
   const checkNumber = (number) => {
@@ -58,9 +58,10 @@ function Carousel() {
     <div style={{ margin: '5rem', padding: '2.5rem' }} >
       <Grid container centered textAlign='center' >
         <Card raised  >
-          <Image src={image} wrapped ui={false} />
+          <Image bordered src={image} />
           <Card.Content>
             <Card.Header>{name}</Card.Header>
+            <Card.Header>{techUsed}</Card.Header>
             <Card.Meta>{job}</Card.Meta>
             <Card.Description> {text} </Card.Description>
           </Card.Content>
