@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import React, { useState } from 'react'
 import { Card, Icon, Image, Grid } from 'semantic-ui-react'
 
@@ -14,6 +15,31 @@ function Carousel() {
   //To get all properties from Data array based on index
   const { name, job, image, text } = Data[index];
 
+
+  const checkNumber = (number) => {
+    if (number > Data.length - 1) {
+      return 0
+    } if (number < 0) {
+      return Data.length - 1
+    } else {
+      return number;
+    }
+  }
+
+  const nextPerson = () => {
+    setIndex((ind) => {
+      let newIndex = ind + 1;
+      return checkNumber(newIndex);
+    })
+  }
+
+  const prevPerson = () => {
+    setIndex((ind) => {
+      let newIndex = ind - 1;
+      return checkNumber(newIndex);
+    })
+  }
+
   return (
     <div style={{ margin: '5rem', padding: '2.5rem' }} >
       <Grid container centered textAlign='center' columns={1}>
@@ -25,8 +51,8 @@ function Carousel() {
             <Card.Description> {text} </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Icon size='big' link name='angle left' />
-            <Icon size='big' link name='angle right' />
+            <Icon onClick={prevPerson} size='big' link name='angle left' />
+            <Icon onClick={nextPerson} size='big' link name='angle right' />
             <div style={{ margin: '1rem' }}>
               <Icon size='big' link name='random' />
             </div>
